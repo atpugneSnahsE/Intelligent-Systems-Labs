@@ -1,37 +1,139 @@
-# IS-Lab1 (EN)
-Intelligent systems. Task for the laboratory for Perceptron training.
-# Aim
-Learn to write training (parameter estimation) algorithm for simple linear classifier.
-# Tasks (maximum 8 points)
-1. Create a program for classification using single Perceptron of two different objects into two classes according to two estimated features. Output estimation should be done acording to the following equation:
-y = 1, if x1\*w1 + x2\*w2 + b > 0; y = -1, if x1\*w1 + x2\*w2 + b <= 0; here w1, w2 and b are the parameters, which should be initialized randomly and updated (estimated) later, using training algorithm; x1 and x2 are the object features, estimated using functions written in Matlab (available in Matlab code template or in Data.txt).
-2. Write a training algorithm for created classifier. Use this parameter update formula:
-w1(n+1) = w1(n) + eta\*e(n)\*x1(n); here 0 < eta < 1; e(n) = d(n) - y(n); - an error, estimated by comparing the desired output d(n) and the output, currently (for current example) received from the Perceptron.
-w2(n+1) = w2(n) + eta\*e(n)\*x2(n);
-b(n+1) = b(n) + eta\*e(n);
-# Additional task (2 additional points)
-Solve this classification task using Naive Bayes Classifier.
-Some examples and tutorials for additional task:
-- http://www.statsoft.com/textbook/naive-bayes-classifier
-- https://en.wikipedia.org/wiki/Naive_Bayes_classifier
-# Suggested reading
-- Neural Networks and Learning Machines (3rd Edition), page 54, Table 1.1. 
+# Perceptron-Based Apple–Pear Classification System
 
-# IS-Lab1 (LT)
-Intelektualiosios sistemos. Pirmojo laboratorinio darbo užduotis.
-# Tikslas
-Išmokti savarankiškai suprogramuoti paprasto tiesinio klasifikatoriaus mokymo (parametrų skaičiavimo) algoritmą.
-# Užduotys (maks. 8 balai)
-1. Sukurkite paprasto klasifikatoriaus (Perceptrono) išėjimui apskaičiuoti skirtą programą. Klasifikatorius turi skirstyti objektus į dvi klases, pagal du požymius. Išėjimo skaičiavimas atliekamas pagal formulę:
-y = 1, kai x1\*w1 + x2\*w2 + b > 0; y = -1, kai x1\*w1 + x2\*w2 + b <= 0; čia w1, w2 ir b parametrai, kurie turi būti sugeneruojami naudojant atsitiktinių skaičių generatorių (MATLAB pvz.: w1 = randn(1);) pirmąją programos veikimo iteraciją ir vėliau atnaujinami mokymo algoritmu; x1 ir x2 yra objektų požymiai, apskaičiuoti Matlab funkcijomis, esančiomis paruoštame kodo ruošinyje arba Data.txt faile (kiekvienoje eilutėje yra toks duomenų formatas: *požymis1, požymis2, norimas_atsakymas*), jei ketinate naudoti ne Matlab.
-2. Parašykite mokymo algoritmą sukurto klasifikatoriaus parametrams apskaičiuoti. Naudokite šią parametrų atnaujinimo formulę:
-w1(n+1) = w1(n) + eta\*e(n)\*x1(n); čia 0 < eta < 1; e(n) = d(n) - y(n); - klaida (momentinė klaida), apskaičiuota palyginus norimą atsakymą su tuo, kuris gautas klasifikatoriaus išėjime.
-w2(n+1) = w2(n) + eta\*e(n)\*x2(n);
-b(n+1) = b(n) + eta\*e(n);
-# Papildoma užduotis (papildomi 2 balai)
-Išspręskite šį klasifikavimo uždavinį naudodami Naive Bayes Classifier.
-Kelios nuorodos į paprastai pateiktus šio tipo klasifikatoriaus taikymo pavyzdžius:
-- http://www.statsoft.com/textbook/naive-bayes-classifier
-- https://en.wikipedia.org/wiki/Naive_Bayes_classifier
-# Rekomenduojama literatūra
-- Neural Networks and Learning Machines (3rd Edition), 54 psl., 1.1 lentelė
+![MATLAB](https://img.shields.io/badge/MATLAB-R2023b-blue.svg)
+![Status](https://img.shields.io/badge/Project-Working-brightgreen.svg)
+![Model](https://img.shields.io/badge/Model-Perceptron-orange.svg)
+
+A simple MATLAB-based binary classifier that distinguishes apples from pears using a **single-layer perceptron** trained on **color** and **roundness** features extracted from fruit images.
+
+
+## 🧠 Overview
+
+This project implements a perceptron classifier to label fruit images as **apple (+1)** or **pear (−1)**.  
+Each image is reduced to a 2D feature vector:
+
+- **Color** (`spalva_color`)
+- **Roundness** (`apvalumas_roundness`)
+
+A perceptron is trained on five images and evaluated on a separate test set to measure accuracy and generalization.
+
+---
+
+## 🎨 Feature Extraction
+
+Each image is mapped to:
+
+\[
+(x_1, x_2) = (\text{color}, \text{roundness})
+\]
+
+### 1. `spalva_color`  
+Computes a representative color feature (e.g., mean hue in HSV space).
+
+### 2. `apvalumas_roundness`  
+Computes geometric roundness, commonly defined as:
+
+\[
+\text{Roundness} = \frac{4\pi \cdot \text{Area}}{\text{Perimeter}^2}
+\]
+
+These two features form a discriminative 2D space for the perceptron.
+
+---
+
+## 📘 Training Dataset
+
+Training samples:
+
+| Image | Class | Label |
+|-------|--------|--------|
+| A1 | Apple | +1 |
+| A2 | Apple | +1 |
+| A3 | Apple | +1 |
+| P1 | Pear  | -1 |
+| P2 | Pear  | -1 |
+
+The feature matrix:
+
+\[
+P = \begin{bmatrix}
+x_1(1) & \dots & x_1(5) \\
+x_2(1) & \dots & x_2(5)
+\end{bmatrix}
+\]
+
+Target vector:
+
+\[
+T = [1, 1, 1, -1, -1]^T
+\]
+
+---
+
+## 🔢 Perceptron Model
+
+The decision function:
+
+\[
+v = w_1x_1 + w_2x_2 + b
+\]
+
+Prediction:
+
+\[
+y = \text{sign}(v)
+\]
+
+Decision boundary:
+
+\[
+w_1 x_1 + w_2 x_2 + b = 0
+\]
+
+This line separates apples and pears in the 2D feature space.
+
+---
+
+## 🔄 Learning Procedure
+
+Weights and bias are initialized randomly.  
+For each sample, the error is computed as:
+
+\[
+e(i) = T(i) - y(i)
+\]
+
+If misclassified, parameters are updated using:
+
+\[
+\begin{aligned}
+w_j &\leftarrow w_j + \eta \, e(i) x_j(i) \\
+b   &\leftarrow b + \eta \, e(i)
+\end{aligned}
+\]
+
+Training continues until all samples are correctly classified (guaranteed if linearly separable).
+
+---
+
+## 🧪 Testing Procedure
+
+Test samples:
+
+- Apples: A4–A9  
+- Pears: P3, P4  
+
+Accuracy is computed as:
+
+\[
+\text{Accuracy} = 1 - \frac{\text{Misclassified Samples}}{N_{\text{test}}}
+\]
+
+Outputs include:
+
+- Number of misclassified images  
+- Overall test accuracy  
+- Final learned weights \( (w_1, w_2, b) \)
+
+---
+
