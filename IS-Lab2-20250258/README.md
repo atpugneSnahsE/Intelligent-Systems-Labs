@@ -1,12 +1,12 @@
 # IS-Lab2 – Multi-Layer Perceptron Training
 
-This repository contains MATLAB implementations of a Multi-Layer Perceptron (MLP) trained with backpropagation for function and surface approximation, following the IS-Lab2 laboratory task description.[file:1]
+This repository contains MATLAB implementations of a Multi-Layer Perceptron (MLP) trained with backpropagation for function and surface approximation, following the IS-Lab2 laboratory task description.
 
 ## Overview
 
 The project implements:
 - A 1D MLP approximator with one input and one output that learns a nonlinear target function defined using sine terms.
-- An extended 2D “surface approximation” MLP with two inputs and one output using the same structural constraints (single hidden layer, nonlinear hidden activation, linear output, backpropagation).[file:1]
+- An extended 2D “surface approximation” MLP with two inputs and one output using the same structural constraints (single hidden layer, nonlinear hidden activation, linear output, backpropagation).
 
 ## Task Description
 
@@ -34,7 +34,8 @@ Extend the solution to a surface approximation problem with:
 - One output variable.
 - The same general MLP structure (single hidden layer, nonlinear hidden activation, linear output, backpropagation).
 
-![MLP approximation results](path/to/your/image.png)
+![MLP approximation results](https://github.com/atpugneSnahsE/Intelligent-Systems-Labs/blob/3e1f7c25f0871bbd7bbc2c5d1de3362cde8bc03d/IS-Lab2-20250258/View%20recent%20photos.png)
+
 
 ## MLP Architecture
 
