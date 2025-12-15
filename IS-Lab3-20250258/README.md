@@ -4,17 +4,6 @@
 
 This repository contains two MATLAB implementations of Radial Basis Function (RBF) Neural Networks for function approximation. The first implementation employs fixed RBF parameters with training restricted to the output layer, whereas the second implementation realizes a fully adaptive RBF network in which all parameters are learned via gradient descent.
 
-## Project Structure
-
-```
-├── rbf_fixed.m           # RBF with fixed centers and radii
-├── rbf_adaptive.m        # RBF with adaptive centers and radii
-├── README.md             # Documentation
-└── Example Outputs/
-    ├── training_curve.png
-    ├── approximation.png
-    └── adaptive_training.png
-```
 
 ## Problem Definition
 
