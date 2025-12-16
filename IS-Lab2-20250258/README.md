@@ -2,6 +2,10 @@
 
 This repository contains MATLAB implementations of a Multi-Layer Perceptron (MLP) trained with backpropagation for function and surface approximation, following the IS-Lab2 laboratory task description.
 
+![MATLAB](https://img.shields.io/badge/MATLAB-R2023b-blue.svg)
+![Status](https://img.shields.io/badge/Project-Working-brightgreen.svg)
+![MLP Model](https://img.shields.io/badge/MLP_Model-v1.0-blue)
+
 ## Overview
 
 The project implements:
