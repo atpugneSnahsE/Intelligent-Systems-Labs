@@ -4,6 +4,11 @@
 
 This project implements a handwritten digit recognition system using **MATLAB** and **Radial Basis Function (RBF) neural networks**. The system recognizes digits (0–9) from scanned images of handwritten text.
 
+![MATLAB](https://img.shields.io/badge/MATLAB-R2023b-blue.svg)
+![Status](https://img.shields.io/badge/Project-Working-brightgreen.svg)
+![RBF Model](https://img.shields.io/badge/RBF_Model-v1.0-pink)
+![MLP Model](https://img.shields.io/badge/MLP_Model-v1.0-blue)
+
 ## ✨ Features
 
 * **Image Preprocessing**: Noise removal, binarization, and segmentation
