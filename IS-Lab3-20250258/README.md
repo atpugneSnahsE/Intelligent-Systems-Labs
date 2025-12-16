@@ -8,12 +8,16 @@ This repository contains two MATLAB implementations of Radial Basis Function (RB
 ## Problem Definition
 
 The objective is to approximate the nonlinear function
-
+```
 [
 y = \frac{1}{2}\left(1 + 0.6\sin\left(\frac{2\pi x}{0.7}\right) + 0.3\sin(2\pi x)\right)
 ]
-
+```
 Training data consist of 22 uniformly sampled points in the interval (x \in [0.1, 1.0]).
+
+![MATLAB](https://img.shields.io/badge/MATLAB-R2023b-blue.svg)
+![Status](https://img.shields.io/badge/Project-Working-brightgreen.svg)
+![RBF Model](https://img.shields.io/badge/RBF_Model-v1.0-pink)
 
 ## Implementation 1: Fixed RBF Network
 
